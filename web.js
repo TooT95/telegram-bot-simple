@@ -1,6 +1,8 @@
 var express = require('express');
 var packageInfo = require('./package.json');
 
+var port = process.env.PORT || 8000;
+
 var app = express();
 
 app.get('/', function (req, res) {
@@ -12,4 +14,8 @@ var server = app.listen(process.env.PORT, function () {
   var port = server.address().port;
 
   console.log('Web server started at http://%s:%s', host, port);
+});
+
+server.listen(port, function() {
+    console.log("App is running on port " + port);
 });
